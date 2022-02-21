@@ -1,0 +1,24 @@
+.App {
+  height: 900px;
+  background: url(./images/backgroundPattern.png);
+  background-size: cover;
+  background-position: center;
+  display:flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.header {
+  width: 1200px;
+  height: 70px;
+}
+
+.logo {
+  width:120px;
+  height:80px;
+  display:flex;
+  justify-content: flex-start;
+  text-align: center;
+  padding-left:50px;
+}
+
