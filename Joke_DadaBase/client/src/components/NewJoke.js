@@ -1,6 +1,8 @@
 import React, {useState} from "react"; 
 import axios from "axios";
 import {Link, navigate} from "@reach/router";
+import logo from "../images/logo.png"
+import dad from "../images/dad.png"
 
 const NewJoke = (props) =>{
 
@@ -30,18 +32,22 @@ const NewJoke = (props) =>{
 
     }
 
+
+
     return(
         <div>
             <header className="header">
-            This is the header for the page
-            <Link to={"/"}>Back to Home</Link>
+            <Link to={"/"}><img src={logo} alt="logo" class="logo"/></Link>
+            
+            <Link to={"/"} className="link">Back to Home</Link>
             </header>
 
+            <div className="jokeCard">
             <form onSubmit={submitHandler}>
                 <div>
-                <label>Title</label>
+                <label style={{fontSize:"larger", fontWeight:"bold"}}>Title</label>&nbsp;&nbsp;
                 <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text"/>
-                <br />
+                <br /><br />
                 {
                 errors.title?
                 <span>{errors.title.message}</span>
@@ -50,9 +56,9 @@ const NewJoke = (props) =>{
                 </div><br />
 
                 <div>
-                <label>Punchline</label>
+                <label style={{fontSize:"larger", fontWeight:"400"}}>Punchline</label>&nbsp;&nbsp;
                 <input value={punchline} onChange={(e)=>setPunchline(e.target.value)} type="text"/>
-                <br />
+                <br /><br />
                 {
                 errors.punchline?
                 <span>{errors.punchline.message}</span>
@@ -60,17 +66,14 @@ const NewJoke = (props) =>{
                 }
                 </div><br />
 
-                <button>Add A Joke</button>
+                <button className="button">Add A Joke</button>
             </form>
+                
+                <div className="dadDIV">
+                <img src={dad} alt="dad" class="dad"/> 
+                </div>
 
-
-
-            <p>Page Completed!!!</p>
-            <p>Success:
-                <br />Form works and is logging information in the fields.
-                <br />SubmittionButton is submitting Joke to Data base and Saving to AllJokes
-                <br />Validators are working!
-                <br />Submittion redirects you to AllJoke for viewing!!</p>
+            </div>
         </div>
     )
 }

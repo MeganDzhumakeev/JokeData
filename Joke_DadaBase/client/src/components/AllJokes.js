@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react"; 
 import axios from "axios";
 import {Link, navigate} from "@reach/router";
+import logo from "../images/logo.png"
+import dad from "../images/dad.png"
 
 const AllJokes = (props) =>{
 
@@ -38,41 +40,32 @@ const AllJokes = (props) =>{
         })
     }
 
-
+// <p>id: {joke._id}</p> 
 
     return(
         <div>
+            
             <header className="header">
-            This is the header for the page
-            <Link to={"/"}>Back to Home</Link>
-            <Link to={"/new"}>Create A Joke</Link>
+            <Link to={"/"}><img src={logo} alt="logo" class="logo"/></Link>
+
+            <Link to={"/"} className="link">Back to Home</Link> <br />
+            <Link to={"/new"} className="link">Create A Joke</Link>
             </header>
+            <div className="allJokeCard">
             {
                 jokeList.map((joke, index)=>(
                     <div key={index}>
-                        <Link to={`/jokes/${joke._id}`}>Title: {joke.title}</Link><br />
-                        <Link to={`/jokes/${joke._id}`}>Punchline: {joke.punchline}</Link><br /><br />
-                        <Link to={`/jokes/edit/${joke._id}`}><button>Edit Joke</button></Link>
-                        <p>id: {joke._id}</p>
-
-                        <button onClick={()=>{alert("Ohno"); deleteJoke(joke._id)}}>Delete</button><br /><br />
+                        <Link to={`/jokes/${joke._id}`} className="allJokesTitleLink">{joke.title}</Link><br />
+                        <Link to={`/jokes/${joke._id}`} className="allJokesPunchlineLink">{joke.punchline}</Link><br /><br />
+                        <Link to={`/jokes/edit/${joke._id}`}><button className="button">Edit Joke</button></Link>
+                        &nbsp;&nbsp;&nbsp;
+                        <button onClick={()=>{alert("No Problem, Sport! I'll come up with some new material for ya!"); deleteJoke(joke._id)}} className="button">Delete</button><br /><br /><br />
 
                         
                     </div>
-                    
-                    
                 ))
             }
-
-            <p>CSS will need to be applied to remove the spaceing, this has been fixed temp<br />
-            with breaks, br, for the time being</p>
-
-            <p>Page Completed!</p>
-                
-            <p>Success:
-                <br />All Jokes displays everything in Database.
-                <br />Edit Joke button redierect to updating joke by ID
-                <br />Delete Joke delteing from database and spiting out an alert</p>
+            </div>
             
         </div>
     )

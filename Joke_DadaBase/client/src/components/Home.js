@@ -3,6 +3,8 @@ import React, {useEffect, useState} from "react"; //useEffect
 //import axios from "axios;"
 import {Link, navigate} from "@reach/router";
 import logo from "../images/logo.png"
+import dad from "../images/dad.png"
+
 
 const Home = (props) =>{
 
@@ -10,24 +12,23 @@ const Home = (props) =>{
 
     return(
         <div>
-        <header className="header">
-            This is the header for the page
-            <img src={logo} alt="logo" class="logo"/>
-        </header>
-        <p>Hey Sport! What to Hear a Joke?</p>
+            <header className="header">
+            <Link to={"/"}><img src={logo} alt="logo" class="logo"/></Link>
 
-        <Link to="/jokes/:id">
-            <button type="button">Sure, Let's Hear it!</button>
-        </Link>
+            </header>
+            <div className="jokeCard">
+            <br />
+            <p style={{fontSize:"larger"}}><b>Hey Sport! What to Hear a Joke?</b></p>
+            <br />
+            <Link to="/jokes/:id">
+                <button type="button" className="button">Sure, Let's Hear it!</button>
+            </Link>
 
+            <div className="dadDIV">
+                    <img src={dad} alt="dad" class="dad"/> 
+                </div>
 
-
-
-            <p>Loaded HomePage was Successful</p>
-            <p>Success Note: Button is linked to OneJoke, no other functions will be need here.<br />
-                Goal was to have a main display with a button to link to one Joke.
-            </p>
-            <p>!!!!!!~Page Completed, Ready for CSS~!!!!!!</p>
+            </div>
 
         </div>
     )

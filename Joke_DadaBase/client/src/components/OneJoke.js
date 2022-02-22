@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react"; 
 import axios from "axios";
 import {Link} from "@reach/router"; 
+import logo from "../images/logo.png"
+import dad from "../images/dad.png"
 
 const OneJoke = (props) =>{
     console.log('looking at my props', props);
@@ -31,9 +33,9 @@ const OneJoke = (props) =>{
             })
     }, [])
 
-    function randomJoke() {
-        const gettingJoke =['This is Funny', 'okay'];
-    }
+    // function randomJoke() {
+    //     const gettingJoke =['This is Funny', 'okay'];
+    // }
     
     useEffect(()=>{
         console.log('in useEffect looking for the ID', id)
@@ -52,67 +54,50 @@ const OneJoke = (props) =>{
     }, [initalRender]) 
 
 
-    /*var jokeReturn = []
-    let request = id.map(id =>{
-        return new Promise((resolve, reject)=>{
-            request({
-                uri:("http://localhost:8000/api/jokes")+'?id' + id,
-                method: 'GET'
-            },
-            (err.res.body)=>{
-                if(err) {reject(err)}
-            }))
-        })
-    })*/
-
-
-    //The goal is to have a single joke display and when user clicks hear another, 
-    //another joke is displayed. 
-    //This can be done with display one in the array of jokes made, and having the button spit out
-    //another element from that array, 
+//console.log('this is my title', joke.title)
+    //console.log('this is my title', joke.punchline)
 
 
 
+    //////////////
+    // <Link to={"/jokes/:id"}>
+    //             <button type="button">Hear Another</button>
+    //         </Link>
+    //         <br /><br />
+    /////////////
 
 
 
-    console.log('this is my title', joke.title)
-    console.log('this is my title', joke.punchline)
     return(
         <div>
             <header className="header">
-            This is the header for the page
-            <Link to={"/"}>Back to Home</Link>
+            <Link to={"/"}><img src={logo} alt="logo" class="logo"/></Link>
+            
+            <Link to={"/"} className="link">Back to Home</Link>
             </header>
 
-
-            <p>Title: {joke.title}</p>
-            <p>Punchline: {joke.punchline}</p>
             
 
-            <p>Information linked to database but not displaying a single joke</p>
-            <p>When clicked from AllJokes, items are displayed in the fields</p>
+                <div className="jokeCard">
+                <p className="jokeTitle">{joke.title}</p>
+                <p className="jokePunchline">{joke.punchline}</p>
+                <br />
 
+                <Link to={"/new"}>
+                    <button type="button" className="button">Create A Joke</button>
+                </Link>
+                &nbsp;&nbsp;&nbsp;
 
-            <Link to={"/jokes/:id"}>
-                <button type="button">Hear Another</button>
-            </Link>
-            <br /><br />
+                <Link to="/all">
+                    <button type="button" className="button">See All Jokes</button>
+                </Link>
 
-            <Link to={"/new"}>
-                <button type="button">Create A Joke</button>
-            </Link>
+                    <div className="dadDIV">
+                    <img src={dad} alt="dad" class="dad"/> 
+                    </div>
+                
 
-            <Link to="/all">
-                <button type="button">See All Jokes</button>
-            </Link>
-
-            <p>Hear Another is linked, but need to test, nothing displaying<br />
-                Button New and All links to appropriate pages</p><br />
-            
-            
-
-            <p>Loading One Joke Success</p>
+                </div>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 .App {
-  height: 900px;
+  height: 1000px;
   background: url(./images/backgroundPattern.png);
   background-size: cover;
   background-position: center;
@@ -11,14 +11,84 @@
 .header {
   width: 1200px;
   height: 70px;
+  padding-top:20px;
+  padding-bottom:90px;
 }
 
 .logo {
-  width:120px;
-  height:80px;
+  width:150px;
+  height:100px;
   display:flex;
   justify-content: flex-start;
   text-align: center;
-  padding-left:50px;
+  padding-left:160px;
 }
 
+.jokeCard {
+  width: 800px;
+  height:200px;
+  padding-top: 40px;
+  margin-left: 190px;
+  background-color: beige;
+  border-radius: 1%;
+}
+
+.allJokeCard {
+  width: 800px;
+  height:auto;
+  padding-top: 40px;
+  margin-left: 190px;
+  background-color: beige;
+  border-radius: 1%;
+}
+
+.button {
+  background-color: #d8522f;
+  color:beige;
+  border-style: none;
+  border-radius: 1%;
+  padding:7px;
+  font-size: medium;
+}
+
+.link {
+  color:black;
+  font-weight:bold;
+  text-decoration: none;
+  padding-left:600px;
+}
+
+
+.jokeTitle {
+  font-size: larger;
+  font-weight: bold;
+  padding-bottom:10px;
+}
+
+.jokePunchline {
+  font-size: larger;
+  font-weight: 400;
+}
+
+
+.dad {
+  width: 200px;
+  height:350px;
+  display: flex;
+  justify-content: end;
+  padding-left: 600px;
+}
+
+.allJokesTitleLink {
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.allJokesPunchlineLink {
+  color: black;
+  font-size: larger;
+  font-weight:400;
+  text-decoration: none;
+}
